@@ -1,7 +1,7 @@
-from Commands.botCommandsCommand import BotCommandsCommand
-from Commands.regulationsCommand import RegulationsCommand
-from Commands.rolesCommand import RolesCommand
-from Commands.banCommand import BanCommand
+from CommandsF.botCommandsCommand import BotCommandsCommand
+from CommandsF.regulationsCommand import RegulationsCommand
+from CommandsF.rolesCommand import RolesCommand
+from CommandsF.banCommand import BanCommand
 
 
 botCommandsCommand = BotCommandsCommand()
@@ -10,7 +10,10 @@ rolesCommand = RolesCommand()
 banCommand = BanCommand()
 
 
-class Router:
+class Command:
+    def __init__(self):
+        self.commandsList = ['info', 'about', 'commands', 'rules', 'roles']
+
     def define(self, command):
         response = ''
         
