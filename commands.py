@@ -10,23 +10,27 @@ rolesCommand = RolesCommand()
 banCommand = BanCommand()
 
 
-class Command:
+class Commands:
     def __init__(self):
-        self.commandsList = ['info', 'about', 'commands', 'rules', 'roles']
+        self.commandsList = ['!info', '!about', '!commands', '!rules', '!roles']
 
-    def define(self, command):
+    def define(self, userText):
         response = ''
-        
-        if command == '!commands':
+
+        if userText == '!commands':
             response = botCommandsCommand.sendResult()
-
-        if command == '!rules' or command == '!regulations':
+            return response
+        
+        if userText == '!rules':
             response = regulationsCommand.sendResult()
-
-        if command == '!roles':
-            response = rolesCommand.sendResult()            
-
-        if command.startswith('!ban'):
+            return response
+        
+        if userText == '!roles':
+            response = rolesCommand.sendResult()
+            return response
+        
+        if userText.startswith('!ban'):
             print('')
-
+            return response
+                
         return response
